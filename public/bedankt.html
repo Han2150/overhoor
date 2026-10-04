@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Betaling – Overhoor</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF0F7;--surface:#fff;--ink:#16233B;--soft:#5B667A;--line:#DCE1E9;--lat:#3B3FB6;--lat2:#6B3FC0;--ok:#1E7A54;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1420;--surface:#172032;--ink:#E9EDF5;--soft:#9CA7BC;--line:#2B3750;--ok:#5DC596}}
+:root[data-theme="dark"]{--bg:#0E1420;--surface:#172032;--ink:#E9EDF5;--soft:#9CA7BC;--line:#2B3750;--ok:#5DC596}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Figtree,system-ui,Arial,sans-serif;display:grid;place-items:center;min-height:100%;padding:24px}
+html{height:100%}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px;max-width:480px;width:100%;box-shadow:0 14px 34px rgba(22,35,59,.1)}
+h1{font-family:Fraunces,Georgia,serif;font-size:36px;line-height:1.05;margin:0 0 10px}
+p{color:var(--soft);margin:0 0 16px}
+.code{display:flex;gap:8px;align-items:center;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin:0 0 20px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;word-break:break-all;color:var(--ink)}
+.code button{margin-left:auto;flex:none}
+.btn{display:inline-flex;justify-content:center;border:0;border-radius:12px;padding:13px 22px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;background:linear-gradient(135deg,var(--lat),var(--lat2));color:#fff;width:100%}
+.sm{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.ok{color:var(--ok)}
+</style>
+</head>
+<body>
+<div class="card" id="box"><h1>Even controleren…</h1><p>We kijken of je betaling gelukt is.</p></div>
+<script>
+const box=document.getElementById("box");
+let tries=0;
+async function check(){
+  let d;
+  try{d=await (await fetch("/api/verify",{cache:"no-store"})).json();}catch(e){d={status:"error"};}
+  if(d.status==="paid"){
+    box.innerHTML='<h1 class="ok">Betaald, gelukt!</h1><p>Bewaar deze code. Daarmee open je Overhoor ook op een ander apparaat.</p><div class="code"><span id="c"></span><button class="sm" id="cp">Kopieer</button></div><a class="btn" href="/app/">Open Overhoor</a>';
+    document.getElementById("c").textContent=d.code;
+    document.getElementById("cp").onclick=async()=>{try{await navigator.clipboard.writeText(d.code);document.getElementById("cp").textContent="Gekopieerd";}catch(e){}};
+  }else if((d.status==="open"||d.status==="pending"||d.status==="authorized")&&tries<6){
+    tries++;box.innerHTML='<h1>Betaling wordt verwerkt…</h1><p>Dit duurt meestal een paar seconden.</p>';setTimeout(check,2500);
+  }else if(d.status==="none"){
+    box.innerHTML='<h1>Geen betaling gevonden</h1><p>Heb je al betaald op een ander apparaat? Vul dan je code in op de startpagina.</p><a class="btn" href="/#code">Naar de startpagina</a>';
+  }else{
+    box.innerHTML='<h1>Betaling niet gelukt</h1><p>Er is niets afgeschreven. Je kunt het gewoon opnieuw proberen.</p><a class="btn" href="/#prijs">Opnieuw proberen</a>';
+  }
+}
+check();
+</script>
+</body>
+</html>

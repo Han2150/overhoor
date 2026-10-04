@@ -1,0 +1,7 @@
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/app/*"
+  [headers.values]
+    Cache-Control = "private, no-store"

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overhoor – Latijn en geschiedenis overhoren</title>
+<meta name="description" content="Overhoor jezelf voor Latijn en geschiedenis. Woorden, grammatica, samenvattingen, een tijdlijn en oefenvragen. Eenmalig €2.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF0F7;--surface:#FFFFFF;--surface2:#F6F7FA;--ink:#16233B;--soft:#5B667A;--line:#DCE1E9;
+  --lat:#3B3FB6;--lat2:#6B3FC0;--his:#1E4B43;--his2:#2C6B5F;--gold:#B87A12;--accent-soft:#ECEDFC;
+  --shadow:0 1px 2px rgba(22,35,59,.06),0 14px 34px rgba(22,35,59,.09);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1420;--surface:#172032;--surface2:#1D2840;--ink:#E9EDF5;--soft:#9CA7BC;--line:#2B3750;--accent-soft:#25264A;--gold:#E3A94A;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--bg:#0E1420;--surface:#172032;--surface2:#1D2840;--ink:#E9EDF5;--soft:#9CA7BC;--line:#2B3750;--accent-soft:#25264A;--gold:#E3A94A;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px rgba(0,0,0,.3)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 Figtree,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.serif{font-family:Fraunces,Georgia,"Times New Roman",serif;letter-spacing:-.015em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--lat);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:22px}
+.mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--lat),var(--lat2));color:#fff;font-size:19px}
+.nav .links{margin-left:auto;display:flex;align-items:center;gap:18px}
+.nav .links a.t{text-decoration:none;color:var(--soft);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 22px;font-weight:700;text-decoration:none;cursor:pointer;background:var(--ink);color:var(--bg);transition:transform .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.sm{padding:9px 16px;border-radius:10px}
+.btn.lat{background:linear-gradient(135deg,var(--lat),var(--lat2));color:#fff}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn[disabled]{opacity:.6;cursor:wait}
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(44px,7vw,78px);line-height:.98;margin:0 0 18px}
+.hero p.lead{font-size:20px;color:var(--soft);margin:0 0 28px;max-width:30ch}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .fine{color:var(--soft);font-size:15px;margin-top:14px}
+.notice{background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:0 0 20px;font-weight:600}
+
+/* hero visual: stapel kaarten */
+.stack{position:relative;height:420px}
+.c{position:absolute;border-radius:22px;box-shadow:var(--shadow)}
+.c1{inset:20px 40px 120px 0;background:linear-gradient(140deg,var(--lat),var(--lat2));color:#fff;padding:26px;transform:rotate(-4deg)}
+.c1 small{opacity:.8;font-weight:600}
+.c1 .w{font-size:46px;margin:30px 0 4px}
+.c1 .m{opacity:.85}
+.c2{inset:150px 0 0 70px;background:var(--surface);border:1px solid var(--line);padding:20px 22px;transform:rotate(3deg)}
+.c2 h3{margin:0 0 12px;font-size:20px;color:var(--his)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .c2 h3{color:#7CC4B4}}
+.mini{position:relative;padding-left:26px}
+.mini::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;background:var(--line);border-radius:2px}
+.mini div{position:relative;margin:0 0 10px;font-size:15px}
+.mini div::before{content:"";position:absolute;left:-25px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--his2);border:3px solid var(--surface)}
+.mini div.g::before{background:var(--gold)}
+.mini b{font-family:Fraunces,Georgia,serif;margin-right:6px}
+
+/* secties */
+section.s{padding:56px 0}
+.s h2{font-size:clamp(32px,4.5vw,46px);line-height:1.05;margin:0 0 12px}
+.s .intro{color:var(--soft);font-size:18px;margin:0 0 30px;max-width:52ch}
+.subjects{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.subj{border-radius:24px;padding:28px;color:#fff;position:relative;overflow:hidden;min-height:300px;display:flex;flex-direction:column}
+.subj.lat{background:linear-gradient(140deg,var(--lat),var(--lat2))}
+.subj.his{background:linear-gradient(140deg,var(--his),var(--his2))}
+.subj .big{position:absolute;right:-8px;bottom:-50px;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:200px;line-height:1;opacity:.13}
+.subj h3{font-size:36px;margin:0 0 8px}
+.subj p{margin:0 0 16px;opacity:.9;max-width:32ch}
+.subj ul{list-style:none;margin:auto 0 0;padding:0;display:grid;gap:8px;position:relative}
+.subj li{display:flex;gap:10px;align-items:baseline}
+.subj li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#fff;opacity:.8;transform:translateY(-2px)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--lat);font-weight:700;margin-bottom:12px}
+.steps b{display:block;font-size:19px;margin-bottom:4px}
+.steps span{color:var(--soft)}
+
+/* prijs */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:38px;box-shadow:var(--shadow)}
+.amount{font-family:Fraunces,Georgia,serif;font-size:96px;line-height:.9;font-weight:700}
+.amount small{font-family:Figtree,system-ui,sans-serif;font-size:18px;font-weight:600;color:var(--soft);margin-left:8px;letter-spacing:0}
+.price ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.price li{display:flex;gap:10px}
+.price li::before{content:"✓";color:var(--his2);font-weight:700}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--soft);margin:0 0 14px;cursor:pointer}
+.consent input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--lat)}
+.price .err{color:#B3382F;font-weight:600;margin-top:10px;min-height:1.5em}
+
+/* code */
+.codebox{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.codebox input{flex:1;min-width:220px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:13px 14px;font:inherit}
+#codemsg{min-height:1.5em;margin-top:8px;font-weight:600}
+
+/* faq */
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px}
+.faq p{margin:10px 0 0;color:var(--soft)}
+
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--soft);font-size:15px}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--soft)}
+
+@media (max-width:820px){
+  .hero .wrap,.price{grid-template-columns:1fr}
+  .stack{height:360px;max-width:420px}
+  .subjects,.steps{grid-template-columns:1fr}
+  .nav .links a.t{display:none}
+  .price{padding:26px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="logo serif" href="/"><span class="mark" aria-hidden="true">O</span>Overhoor</a>
+  <nav class="links" aria-label="Hoofdmenu">
+    <a class="t" href="#vakken">Vakken</a>
+    <a class="t" href="#prijs">Prijs</a>
+    <a class="t" href="#code">Code invullen</a>
+    <a class="btn sm lat js-cta" href="#prijs">Koop toegang</a>
+  </nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="notice" id="notice" hidden>Je hebt nog geen toegang. Koop toegang hieronder, of vul je code in als je al betaald hebt.</p>
+    <h1 class="serif">Klaar voor je toets.</h1>
+    <p class="lead">Overhoor jezelf voor Latijn en geschiedenis, net zo lang tot je het echt kent.</p>
+    <div class="cta">
+      <button class="btn lat js-pay js-cta-main">Koop toegang voor €2</button>
+      <a class="btn ghost" href="#vakken">Bekijk wat erin zit</a>
+    </div>
+    <p class="fine">Eenmalig betalen met iDEAL. Geen abonnement.</p>
+  </div>
+  <div class="stack" aria-hidden="true">
+    <div class="c c1"><small>Latijn, les 22</small><div class="w serif">amicus</div><div class="m">tik om de betekenis te zien</div></div>
+    <div class="c c2"><h3 class="serif">Tijdlijn</h3>
+      <div class="mini"><div><b>380</b>Christendom staatsgodsdienst</div><div><b>754</b>Bonifatius vermoord bij Dokkum</div><div class="g"><b>1452</b>Leonardo da Vinci geboren</div><div class="g"><b>1453</b>Val van Constantinopel</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="vakken"><div class="wrap">
+  <h2 class="serif">Twee vakken, één plek</h2>
+  <p class="intro">Alles wat je nodig hebt om te leren en jezelf te overhoren, op je telefoon of laptop.</p>
+  <div class="subjects">
+    <article class="subj lat"><span class="big" aria-hidden="true">L</span>
+      <h3 class="serif">Latijn</h3><p>Woorden en grammatica voor de eerste en tweede klas.</p>
+      <ul><li>Woorden leren met flitskaarten</li><li>Overhoren, ook hardop met je stem</li><li>Grammatica oefenen: verbuigen en vervoegen</li><li>Slaapstand: herhalen met geluid tijdens het slapen</li></ul>
+    </article>
+    <article class="subj his"><span class="big" aria-hidden="true">G</span>
+      <h3 class="serif">Geschiedenis</h3><p>Van de kerstening van Europa tot Leonardo da Vinci.</p>
+      <ul><li>Overzichtelijke samenvattingen per onderwerp</li><li>Tijdlijn met alle gebeurtenissen</li><li>Ruim 70 oefenvragen over de begrippen</li><li>Gebeurtenissen op volgorde slepen</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section class="s"><div class="wrap">
+  <h2 class="serif">Zo werkt het</h2>
+  <p class="intro">Drie stappen, elke keer dat je gaat leren.</p>
+  <ol class="steps">
+    <li><b>Leren</b><span>Lees de stof in korte, overzichtelijke stukken.</span></li>
+    <li><b>Overhoren</b><span>Beantwoord de vragen en zie meteen of je het goed hebt.</span></li>
+    <li><b>Herhalen</b><span>Wat je nog niet weet komt terug, tot je alles kent.</span></li>
+  </ol>
+</div></section>
+
+<section class="s" id="prijs"><div class="wrap">
+  <div class="price">
+    <div>
+      <h2 class="serif">Toegang tot alles</h2>
+      <div class="amount">€2<small>eenmalig</small></div>
+    </div>
+    <div>
+      <ul><li>Latijn en geschiedenis</li><li>Werkt op telefoon, tablet en laptop</li><li>Je krijgt een code voor je andere apparaten</li><li>Geen abonnement, geen account nodig</li></ul>
+      <label class="consent"><input type="checkbox" id="consent"> Ik wil direct toegang en weet dat ik daardoor mijn herroepingsrecht verlies.</label>
+      <button class="btn lat js-pay" style="width:100%">Betaal €2 met iDEAL</button>
+      <p class="err" id="payerr" role="alert"></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="code"><div class="wrap">
+  <h2 class="serif">Al betaald?</h2>
+  <p class="intro">Vul de code in die je na het betalen kreeg. Zo open je Overhoor ook op een ander apparaat.</p>
+  <form class="codebox" id="codeform">
+    <input id="codein" placeholder="Bijv. tr_AbC123.x8Fk2…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Jouw toegangscode">
+    <button class="btn" type="submit">Open Overhoor</button>
+  </form>
+  <p id="codemsg" role="status"></p>
+</div></section>
+
+<section class="s faq"><div class="wrap">
+  <h2 class="serif">Vragen</h2>
+  <details><summary>Hoe betaal ik?</summary><p>Met iDEAL via je eigen bank. Na het betalen kom je direct terug op Overhoor en kun je meteen beginnen.</p></details>
+  <details><summary>Is het een abonnement?</summary><p>Nee. Je betaalt één keer €2 en houdt toegang.</p></details>
+  <details><summary>Werkt het ook op mijn andere apparaten?</summary><p>Ja. Na het betalen krijg je een code. Vul die in op een ander apparaat bij "Al betaald?".</p></details>
+  <details><summary>Ik ben mijn code kwijt.</summary><p>Op het apparaat waarop je betaalde blijft Overhoor gewoon open. Mail ons met de datum van je betaling, dan zoeken we je code op.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> Overhoor</span>
+  <span>Contact: <a href="mailto:[JOUW-EMAIL]">[JOUW-EMAIL]</a></span>
+  <span><a href="/voorwaarden.html">Voorwaarden</a> en <a href="/privacy.html">privacy</a></span>
+</div></footer>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+if(new URLSearchParams(location.search).get("toegang")==="nodig") document.getElementById("notice").hidden=false;
+
+// Heeft deze browser al toegang? Dan worden de knoppen "Open Overhoor".
+fetch("/api/status").then(r=>r.json()).then(d=>{
+  if(!d.access) return;
+  document.querySelectorAll(".js-cta,.js-pay").forEach(b=>{
+    const a=document.createElement("a");a.className=b.className.replace("js-pay","");a.href="/app/";a.textContent="Open Overhoor";
+    if(b.getAttribute("style"))a.setAttribute("style",b.getAttribute("style"));b.replaceWith(a);
+  });
+  document.getElementById("notice").hidden=true;
+}).catch(()=>{});
+
+document.querySelectorAll(".js-pay").forEach(b=>b.addEventListener("click",async()=>{
+  const err=document.getElementById("payerr");err.textContent="";
+  if(!document.getElementById("consent").checked){err.textContent="Vink eerst het vakje hierboven aan.";document.getElementById("prijs").scrollIntoView();return;}
+  document.querySelectorAll(".js-pay").forEach(x=>x.disabled=true);
+  try{
+    const r=await fetch("/api/pay",{method:"POST"});const d=await r.json();
+    if(!r.ok||!d.url) throw new Error(d.error||"");
+    location.href=d.url;
+  }catch(e){
+    err.textContent="Betalen kon niet worden gestart. Probeer het over een minuut opnieuw.";
+    document.querySelectorAll(".js-pay").forEach(x=>x.disabled=false);
+    document.getElementById("prijs").scrollIntoView();
+  }
+}));
+
+document.getElementById("codeform").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const msg=document.getElementById("codemsg"),code=document.getElementById("codein").value.trim();
+  if(!code){msg.textContent="Vul eerst je code in.";return;}
+  msg.textContent="Code controleren…";
+  try{
+    const r=await fetch("/api/redeem",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code})});
+    const d=await r.json();
+    if(d.ok){msg.textContent="Gelukt. Overhoor wordt geopend.";location.href="/app/";}
+    else msg.textContent=d.error||"Deze code werkt niet.";
+  }catch(e){msg.textContent="Controleren lukt nu niet. Probeer het zo opnieuw.";}
+});
+</script>
+</body>
+</html>
